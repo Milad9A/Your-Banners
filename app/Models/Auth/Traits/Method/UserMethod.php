@@ -2,6 +2,8 @@
 
 namespace App\Models\Auth\Traits\Method;
 
+use App\Company;
+
 /**
  * Trait UserMethod.
  */
@@ -74,6 +76,16 @@ trait UserMethod
     public function isAdmin()
     {
         return $this->hasRole(config('access.users.admin_role'));
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function isCompanyAdmin($company_id)
+    {
+        return false;
     }
 
     /**

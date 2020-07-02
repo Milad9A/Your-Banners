@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\Auth\User\UserPasswordController;
 use App\Http\Controllers\Backend\Auth\User\UserSessionController;
 use App\Http\Controllers\Backend\Auth\User\UserSocialController;
 use App\Http\Controllers\Backend\Auth\User\UserStatusController;
+use App\Http\Middleware\CompanyAdmin;
 
 // All route names are prefixed with 'admin.auth'.
 Route::group([
@@ -77,7 +78,31 @@ Route::group([
         });
     });
 
-    // Banner Management
+
+    Route::group(['namespace' => 'Location'], function () {
+        Route::get('location', [LocationsController::class, 'index'])->name('location.index');
+        Route::post('location', [LocationsController::class, 'store'])->name('location.store');
+        Route::get('location/create', [LocationsController::class, 'create'])->name('location.create');
+        Route::get('location/{location}/edit', [LocationsController::class, 'edit'])->name('location.edit');
+        Route::patch('location/{location}', [LocationsController::class, 'update'])->name('location.update');
+        Route::get('location/{location}/delete', [LocationsController::class, 'destroy'])->name('location.destroy');
+    });
+
+    Route::group(['namespace' => 'Rent'], function () {
+        Route::post('banner/rent', [RentController::class, 'store'])->name('rent.store');
+        Route::get('banner/rent/{rent}/delete', [RentController::class, 'destroy'])->name('rent.destroy');
+    });
+});
+
+
+Route::group([
+    'prefix' => 'auth',
+    'as' => 'auth.',
+    'namespace' => 'Auth',
+    'middleware' => CompanyAdmin::class,
+], function () {
+
+// Banner Management
     Route::group(['namespace' => 'Banner'], function () {
         Route::get('banner', [BannersController::class, 'index'])->name('banner.index');
 
@@ -100,17 +125,5 @@ Route::group([
 
     });
 
-    Route::group(['namespace' => 'Location'], function (){
-        Route::get('location', [LocationsController::class, 'index'])->name('location.index');
-        Route::post('location', [LocationsController::class, 'store'])->name('location.store');
-        Route::get('location/create', [LocationsController::class, 'create'])->name('location.create');
-        Route::get('location/{location}/edit', [LocationsController::class, 'edit'])->name('location.edit');
-        Route::patch('location/{location}', [LocationsController::class, 'update'])->name('location.update');
-        Route::get('location/{location}/delete', [LocationsController::class, 'destroy'])->name('location.destroy');
-    });
 
-    Route::group(['namespace' => 'Rent'], function (){
-        Route::post('banner/rent', [RentController::class, 'store'])->name('rent.store');
-        Route::get('banner/rent/{rent}/delete', [RentController::class, 'destroy'])->name('rent.destroy');
-    });
 });

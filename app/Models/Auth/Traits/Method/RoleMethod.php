@@ -14,4 +14,5 @@ trait RoleMethod
     {
         return $this->name === config('access.users.admin_role');
     }
+
 }
