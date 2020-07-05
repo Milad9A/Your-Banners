@@ -54,6 +54,14 @@ return [
                 'main' => 'المواقع',
                 'view' => 'View Location',
             ],
+
+            'companies' => [
+                'all' => 'جميع الشركات',
+                'create' => 'إضافة شركة جديد',
+                'edit' => 'تعديل شركة',
+                'main' => 'الشركات',
+                'view' => 'View Company',
+            ],
         ],
 
         'log-viewer' => [

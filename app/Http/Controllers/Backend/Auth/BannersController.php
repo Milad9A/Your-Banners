@@ -19,7 +19,10 @@ class BannersController extends Controller
      */
     public function index()
     {
-        $banners = Banner::all();
+        $banners = Banner::latest();
+        if(\request()->has('company_id'))
+            $banners->where('company_id', \request()->company_id);
+        $banners = $banners->get();
         return view('backend.auth.banner.index', compact('banners'));
     }
 
@@ -48,6 +51,7 @@ class BannersController extends Controller
             })],
             'description' => 'required',
             'location_id' => 'required|exists:locations,id',
+            'company_id' => 'required|exists:companies,id',
             'image' => 'required',
         ]));
 
@@ -102,6 +106,7 @@ class BannersController extends Controller
             })->ignore($banner)],
             'description' => 'required',
             'location_id' => 'required|exists:locations,id',
+            'company_id' => 'required|exists:companies,id'
         ]));
 
         if ($image = $request->file('image')) {

@@ -54,6 +54,17 @@
                                 </a>
                             </li>
 
+                            <li class="nav-item">
+                                <a class="nav-link {{
+                                active_class(Route::is('admin/auth/company*'))
+                            }}" href="{{ route('admin.auth.company.index') }}">
+                                    @lang('labels.backend.access.companies.management')
+
+                                    @if ($pending_approval > 0)
+                                        <span class="badge badge-danger">{{ $pending_approval }}</span>
+                                    @endif
+                                </a>
+                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link {{
@@ -76,7 +87,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link {{
                                     active_class(Route::is('admin/auth/banner*'))
-                                }}" href="{{ route('admin.auth.banner.index') }}">
+                                         }}" href="{{ route('admin.auth.banner.index') }}">
                                             {{ $company->name }} @lang('labels.backend.access.banners.management')
 
                                             @if ($pending_approval > 0)
@@ -90,7 +101,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link {{
                                     active_class(Route::is('admin/auth/banner*'))
-                                }}" href="{{ route('admin.auth.banner.index') }}">
+                                }}" href="{{ route('admin.auth.banner.index', ['company_id' => auth()->user()->company()->first()->id]) }}">
                                         {{ auth()->user()->company->name }} @lang('labels.backend.access.banners.management')
 
                                         @if ($pending_approval > 0)
@@ -100,7 +111,6 @@
                                 </li>
 
                             @endif
-
 
                         </ul>
                     </li>

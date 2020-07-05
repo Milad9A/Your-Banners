@@ -180,6 +180,7 @@ return [
 
                 'banners' => [
                     'name' => 'اسم الزبون',
+                    'company' => 'اسم الشركة',
                     'number' => 'الرقم',
                     'description' => 'التفاصيل',
                     'location' => 'الموقع',
@@ -191,6 +192,11 @@ return [
                 'locations' => [
                     'name' => 'الاسم'
                 ],
+
+                'companies' => [
+                    'name' => 'الاسم'
+                ],
+
             ],
         ],
 

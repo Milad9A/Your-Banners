@@ -188,6 +188,7 @@ return [
 
                 'banners' => [
                     'name' => 'Customer Name',
+                    'company' => 'Company Name',
                     'number' => 'Number',
                     'description' => 'Description',
                     'location' => 'Location',
@@ -197,6 +198,10 @@ return [
                 ],
 
                 'locations' => [
+                    'name' => 'Name'
+                ],
+
+                'companies' => [
                     'name' => 'Name'
                 ],
             ],

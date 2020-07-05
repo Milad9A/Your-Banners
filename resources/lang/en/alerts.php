@@ -42,6 +42,11 @@ return [
         'locations' => [
             'created' => 'The Location was successfully created',
             'updated' => 'The Location was successfully updated',
+        ],
+
+        'companies' => [
+            'created' => 'The Company was successfully Added',
+            'updated' => 'The Company was successfully updated',
         ]
     ],
 

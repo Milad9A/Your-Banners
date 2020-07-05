@@ -114,6 +114,7 @@ return [
                         'overview' => [
                             'image' => 'الصورة',
                             'name' => 'اسم الزبون',
+                            'company_id' => 'الشركة',
                             'number' => 'الرقم',
                             'description' => 'التفاصيل',
                             'location_id' => 'الموقع',
@@ -140,6 +141,22 @@ return [
                 ],
 
                 'view' => 'View Location',
+            ],
+
+            'companies' => [
+                'create' => 'إضافة شركة',
+                'edit' => 'تعديل الشركة',
+                'management' => 'إدارة الشركات',
+
+                'tabs' => [
+                    'content' => [
+                        'overview' => [
+                            'name' => 'الاسم',
+                        ],
+                    ],
+                ],
+
+                'view' => 'View Company',
             ],
         ],
     ],

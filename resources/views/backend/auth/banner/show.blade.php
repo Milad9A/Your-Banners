@@ -39,6 +39,12 @@
                                     </tr>
 
                                     <tr>
+                                        <th>@lang('labels.backend.access.banners.tabs.content.overview.company_id')
+                                        </th>
+                                        <td>{{ $banner->company->name }}</td>
+                                    </tr>
+
+                                    <tr>
                                         <th>@lang('labels.backend.access.banners.tabs.content.overview.description')
                                         </th>
                                         <td>{{ $banner->description }}</td>

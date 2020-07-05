@@ -54,6 +54,14 @@ return [
                 'main' => 'Locations',
                 'view' => 'View Location',
             ],
+
+            'companies' => [
+                'all' => 'All Companies',
+                'create' => 'Add Company',
+                'edit' => 'Edit Company',
+                'main' => 'Companies',
+                'view' => 'View Company',
+            ],
         ],
 
         'log-viewer' => [

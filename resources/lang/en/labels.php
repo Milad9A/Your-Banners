@@ -126,6 +126,7 @@ return [
                             'image' => 'Image',
                             'name' => 'Customer Name',
                             'number' => 'Number',
+                            'company_id' => 'Company',
                             'description' => 'Description',
                             'location_id' => 'Location',
                             'renting_began_at' => 'Renting Started at',
@@ -151,6 +152,22 @@ return [
                 ],
 
                 'view' => 'View Location',
+            ],
+
+            'companies' => [
+                'create' => 'Add Company',
+                'edit' => 'Edit Company',
+                'management' => 'Company Management',
+
+                'tabs' => [
+                    'content' => [
+                        'overview' => [
+                            'name' => 'Name',
+                        ],
+                    ],
+                ],
+
+                'view' => 'View Company',
             ],
         ],
     ],

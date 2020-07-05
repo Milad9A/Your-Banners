@@ -83,9 +83,9 @@ trait UserMethod
         return $this->belongsTo(Company::class);
     }
 
-    public function isCompanyAdmin($company_id)
+    public function isCompanyAdmin()
     {
-        return false;
+        return $this->company()->count() > 0;
     }
 
     /**

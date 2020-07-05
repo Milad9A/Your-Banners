@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\Auth\Banner\BannerStatusController;
 use App\Http\Controllers\Backend\Auth\BannersController;
+use App\Http\Controllers\Backend\Auth\Company\CompaniesController;
 use App\Http\Controllers\Backend\Auth\Location\LocationsController;
 use App\Http\Controllers\Backend\Auth\Rent\RentController;
 use App\Http\Controllers\Backend\Auth\Role\RoleController;
@@ -86,6 +87,15 @@ Route::group([
         Route::get('location/{location}/edit', [LocationsController::class, 'edit'])->name('location.edit');
         Route::patch('location/{location}', [LocationsController::class, 'update'])->name('location.update');
         Route::get('location/{location}/delete', [LocationsController::class, 'destroy'])->name('location.destroy');
+    });
+
+    Route::group(['namespace' => 'Company'], function () {
+        Route::get('company', [CompaniesController::class, 'index'])->name('company.index');
+        Route::post('company', [CompaniesController::class, 'store'])->name('company.store');
+        Route::get('company/create', [CompaniesController::class, 'create'])->name('company.create');
+        Route::get('company/{company}/edit', [CompaniesController::class, 'edit'])->name('company.edit');
+        Route::patch('company/{company}', [CompaniesController::class, 'update'])->name('company.update');
+        Route::get('company/{company}/delete', [CompaniesController::class, 'destroy'])->name('company.destroy');
     });
 
     Route::group(['namespace' => 'Rent'], function () {

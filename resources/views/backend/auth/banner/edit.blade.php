@@ -46,6 +46,34 @@
                     </div>
                     <!--form-group-->
 
+                    @if (auth()->user()->isAdmin())
+
+                    <div class="form-group row">
+                        {{ html()->label(__('validation.attributes.backend.access.banners.company'))->class('col-md-2 form-control-label') }}
+
+                        <div class="col-md-10">
+                            <div class="select control">
+                                <select name="company_id" class="browser-default custom-select">
+                                    <option selected value="{{ $banner->company->id }}">{{ $banner->company->name }}
+                                    </option>
+                                    @foreach(\App\Company::all()->except([$banner->company->id]) as $company)
+                                        <option value="{{$company->id}}">{{$company->name}}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('company_id')
+                                <p class="help is-danger">{{ $message }}</p>
+                                @enderror
+
+                            </div>
+                        </div>
+                    </div>
+
+                    @elseif(auth()->user()->isCompanyAdmin())
+                        <input type="hidden" name="company_id" value="{{ auth()->user()->company()->first()->id }}">
+
+                    @endif
+
                     <div class="form-group row">
                         {{ html()->label(__('validation.attributes.backend.access.banners.description'))->class('col-md-2 form-control-label')->for('description') }}
 
