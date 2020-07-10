@@ -102,7 +102,7 @@ class BannersController extends Controller
         $banner = Banner::findOrFail($id);
         $banner->update(request()->validate([
             'number' => ['numeric', 'required', Rule::unique('banners')->where(function ($query) use ($request) {
-                return $query->where('location_id', $request->location_id);
+                return $query->where('location_id', $request->location_id)->where('company_id', $request->company_id);
             })->ignore($banner)],
             'description' => 'required',
             'location_id' => 'required|exists:locations,id',
