@@ -78,16 +78,27 @@
                                 </a>
                             </li>
 
-
                             @endif
 
                             @if (auth()->user()->isAdmin())
+
+                                <li class="nav-item">
+                                    <a class="nav-link {{
+                                    active_class(Route::is('admin/auth/banner*'))
+                                         }}" href="{{ route('admin.auth.banner.index') }}">
+                                        @lang('labels.backend.access.banners.management')
+
+                                        @if ($pending_approval > 0)
+                                            <span class="badge badge-danger">{{ $pending_approval }}</span>
+                                        @endif
+                                    </a>
+                                </li>
 
                                 @foreach(\App\Company::all() as $company)
                                     <li class="nav-item">
                                         <a class="nav-link {{
                                     active_class(Route::is('admin/auth/banner*'))
-                                         }}" href="{{ route('admin.auth.banner.index') }}">
+                                         }}" href="{{ route('admin.auth.banner.index', ['company_id' => $company->id]) }}">
                                             {{ $company->name }} @lang('labels.backend.access.banners.management')
 
                                             @if ($pending_approval > 0)

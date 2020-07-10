@@ -152,10 +152,12 @@
                                                             <div class="card-body">
                                                                 <div class="col-md-10">
                                                                     <div class="select control">
-                                                                        <select name="company_id" class="browser-default custom-select">
+                                                                        <select name="company_id"
+                                                                                class="browser-default custom-select">
                                                                             <option selected>Select Company</option>
                                                                             @foreach(\App\Company::all() as $company)
-                                                                                <option value="{{$company->id}}">{{$company->name}}</option>
+                                                                                <option
+                                                                                    value="{{$company->id}}">{{$company->name}}</option>
                                                                             @endforeach
                                                                         </select>
 

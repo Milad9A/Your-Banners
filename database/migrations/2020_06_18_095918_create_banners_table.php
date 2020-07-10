@@ -24,7 +24,7 @@ class CreateBannersTable extends Migration
             $table->boolean('active')->default(1);
             $table->timestamps();
 
-            $table->unique(['location_id', 'number']);
+            $table->unique(['location_id', 'number', 'company_id']);
 
             $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
         });

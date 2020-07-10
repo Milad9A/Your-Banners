@@ -113,7 +113,7 @@ Route::group([
 ], function () {
 
 // Banner Management
-    Route::group(['namespace' => 'Banner'], function () {
+    Route::group(['namespace' => 'Banner', 'middleware' => 'company_admin'], function () {
         Route::get('banner', [BannersController::class, 'index'])->name('banner.index');
 
         Route::get('banner/available', [BannerStatusController::class, 'getAvailable'])->name('banner.available');
